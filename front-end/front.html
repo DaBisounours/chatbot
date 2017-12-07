@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="theme.css">
+    <script>
+
+        function getGreeting() {
+            var greetings = [
+                "Hello, what can I help you with?",
+                "What do you want to know?",
+                "I will be pleased to answer your question!"
+            ];
+            var randomGreetingIndex = Math.floor((Math.random() * 1000) + 1) % greetings.length;
+            return greetings[randomGreetingIndex];
+        }
+
+        function initialize(){
+            /* Set the placeholder */
+            var inputElement = document.getElementById('text-area');
+            if (inputElement) {
+                inputElement.placeholder = getGreeting();
+            }
+
+        }
+
+    </script>
+</head>
+<body onload="initialize()">
+    <div class="catbat">
+        <div class="user-input box-shadow-inset-top">
+            <input id="text-area" type="text" placeholder="Type here..."/>
+        </div>
+        <div class="chat-window">
+
+
+            <div class="message-box">
+                <div class="message bot-message">
+                    SOME TEXT
+                </div>
+            </div>
+
+
+            <div class="message-box">
+                <div class="message user-message">
+                    Nothin man I'm just there
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message bot-message">
+                    Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there.
+                </div>
+            </div>
+
+            <div class="message-box">
+                <div class="message user-message">
+                    Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there.
+                </div>
+            </div>
+            <div class="message-box">
+                <div class="message user-message">
+                    Nothin man I'm just there.
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</body>
+</html>
