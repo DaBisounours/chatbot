@@ -50,6 +50,7 @@ var answers = [
 	"Si une personne est tombée de haut, et est toujours consciente, demander lui de ne pas bouger et ne la touchez pas. Appelez immédiatement les secours (15)",
 	"Si la personne est tombée de haut et est inconsciente, Ne la touchez pas mais vérifiez sa respiration et sont pouls. Appelez immédiatement les secours (15) et procédez à une réanimation cardio-pulmonaire si nécessaire (pas de pouls ni de respiration). Le numéro des secours est le 15",
 	"Si la personne a ingéré le mauvais médicament (pas le bon traitement), appelez immédiatement les secours (15)",
+	"Donnez plus de détails."
 ];
 
 var dataset = [
@@ -69,4 +70,5 @@ var dataset = [
 	[26, 25, 13],
 	[26, 25, 19, 6, 14],
 	[28, 30,  15],
+	[16]
 ]
