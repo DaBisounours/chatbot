@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script>
+		<script src="keys.js"></script>
+		<script>
+
+			// build the binary mask for each couple (keywords - answer)
+			readyDataset = []
+
+			for (var i=0; i < dataset.length; i++) {
+				var lkeywords = dataset[i].slice(0, -1)
+				var lanswer = dataset[i][dataset[i].length-1]
+				
+				// create the keywords and answers mask
+				var keywordsMask = new Array(keywords.length).fill(0)
+				var answersMask = new Array(answers.length).fill(0)
+
+				for (key in lkeywords) {
+					keywordsMask[lkeywords[key]] = 1;
+				}
+
+				answersMask[lanswer] = 1;
+			
+
+				// push the training data in the trainingDatasetVariable
+				readyDataset.push(
+					{
+						input: keywordsMask,
+						output: answersMask
+					}
+				);
+			}
+
+
+			// build the network
+			var chatNN = new synaptic.Architect.Perceptron(
+				keywords.length,	// input layer
+				15, // hidden 1			// need some tunning
+				15, // hidden 2			// need some tunning
+				answers.length	// output layer
+			);
+
+			// build the trainer
+			console.log(readyDataset)
+			var trainer = new synaptic.Trainer(chatNN);
+			trainer.train(readyDataset, {
+				rate: 0.05,
+				iterations: 50000,
+				shuffle: false
+			});
+
+			// testing
+			var testingINput = [0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0]
+			var prediction = chatNN.activate(testingINput)
+			console.log(prediction)
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>
