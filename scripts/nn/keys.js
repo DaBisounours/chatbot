@@ -1,3 +1,4 @@
+/* Mots clés */
 var keywords = [
 	"sang,saigné",
 	"beaucoup",
@@ -32,7 +33,7 @@ var keywords = [
 	"intoxication,intoxiqué,poison"
 ];
 
-
+/* Réponses */
 var answers = [
 	"Si il y beaucoup de sang, appuyez sur la plaie. Appelez à l'aide et composez le 15 (secours)",
 	"Si la plaie est petite, nettoyez avec de l'eau et du savon, désinfectez (si possible) puis appliquez un bandage (si vraiment petite, ce n'est pas nécessaire)",
@@ -53,6 +54,7 @@ var answers = [
 	"Donnez plus de détails."
 ];
 
+/* Représentation des liens entre les mots-clés et les réponses (matrice simplifiée, chaque valeur représente l'index d'un 1 dans une ligne, les autres index sont à zéro)*/
 var dataset = [
 	[0, 1, 4, 12, 0],
 	[2, 4, 1],
