@@ -55,6 +55,7 @@ html, body {
 
 #chat-window {
     display: block;
+    margin-bottom: 56px;
 }
 
 .message-box {
