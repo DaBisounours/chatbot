@@ -6,6 +6,7 @@
     <!-- Style -->
     <link rel="stylesheet" type="text/css" href="style/reset.css">
     <link rel="stylesheet" type="text/css" href="style/theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script><!-- NN Library -->
     <script src="scripts/parser/parser.js"></script><!-- Parser -->
@@ -14,6 +15,8 @@
 
     <!-- This page's Scripts -->
     <script>
+        var showExplanation = false;
+
         /* Gets a random greeting sentence */
         function getGreeting() {
             var greetings = [
@@ -72,6 +75,8 @@
             if (inputElement) {
                 addBotMessage(getGreeting());
             }
+            document.getElementById("catbat").style.display = "inherit";
+            document.getElementById("explanation").style.display = "none";
 
             /* Create and train the NN */
             chatNN = createNN(keywords.length, answers.length);
@@ -85,18 +90,58 @@
             addBotMessage(activate(chatNN, parseText(text, keywords)));
         }
 
+        function onSwitchClick(event) {
+            if (showExplanation) {
+                document.getElementById("catbat").style.display = "inherit";
+                document.getElementById("explanation").style.display = "none";
+
+                showExplanation = false;
+            }
+            else {
+                document.getElementById("catbat").style.display = "none";
+                document.getElementById("explanation").style.display = "inherit";
+
+                showExplanation = true;
+            }
+        }
 
     </script>
 </head>
 <body onload="initialize()">
-<div class="catbat">
+<div id="catbat">
     <div class="user-input box-shadow-outline">
-
         <input id="text-area" type="text" onkeypress="enterKeyFilter(event, userSubmitCallback)"
                placeholder="Tapez ici..."/>
     </div>
     <div id="chat-window" class=""></div>
 </div>
+<div class="switch" onclick="onSwitchClick(event)"><i class="fa fa-info-circle"></i></div>
+<div id="explanation">
+    <h1>Description</h1>
+    <p>
+        Notre robot a un but pédagogique dans le domaine des premiers secours. Il se présente sous la forme d'un chatbot
+        dans lequel il est possible de poser des questions dans un langage naturel et d'obtenir une réponse détaillée
+        de la procédure à suivre en fonction du cas.
+        L'intervention de l'intelligence artificielle a pour but de permettre au robot d'apprendre automatiquement
+        de nouveaux couples questions/réponses. Etant initialisé à partir d'un corpus questions/réponses simple, il
+        ne permet pas d'obtenir un apprentissage suffisament précis.
+        L'apprentissage supervisé étant sensible au corpus, il suffit de le construire en fonction du domaine d'activité.
+    </p>
+    <h1>Intégration</h1>
+    <p>
+        Nous avons implémenté à l'aide d'une librairie (Synaptic) un perceptron multi-couche qui nous permet de classifier
+        un ensemble de mots-clés correspondant à l'une des différentes réponses présentes dans le corpus.
+        En voici une architecture typique :
+    </p>
+    <img src="img/nn.svg" width="500px">
+    <p>Le nombre de neurones d'entrées correspond au nombre de mots-clés, le nombre de neurones de sortie au nombre
+        de réponses possibles.
+    </p>
 
+    <h1>Analyse</h1>
+    <p>Ce type de modèle d'apprentissage devient de plus en plus facile à mettre en place, et il a prouvé son
+        efficacité à résoudre des problèmes de sémantique complexes. Cependant sa précision dépend grandement de la
+        qualité du corpus et de sa diversité.</p>
+</div>
 </body>
 </html>

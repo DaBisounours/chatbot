@@ -30,7 +30,8 @@ var keywords = [
 	"eau",
 	"medicament,médicament,produit",
 	"parler",
-	"intoxication,intoxiqué,poison"
+	"intoxication,intoxiqué,poison",
+	"bonjour"
 ];
 
 /* Réponses */
@@ -51,7 +52,8 @@ var answers = [
 	"Si une personne est tombée de haut, et est toujours consciente, demander lui de ne pas bouger et ne la touchez pas. Appelez immédiatement les secours (15)",
 	"Si la personne est tombée de haut et est inconsciente, Ne la touchez pas mais vérifiez sa respiration et sont pouls. Appelez immédiatement les secours (15) et procédez à une réanimation cardio-pulmonaire si nécessaire (pas de pouls ni de respiration). Le numéro des secours est le 15",
 	"Si la personne a ingéré le mauvais médicament (pas le bon traitement), appelez immédiatement les secours (15)",
-	"Donnez plus de détails."
+	"Donnez plus de détails.",
+	"Bonjour, que puis-je faire pour vous?"
 ];
 
 /* Représentation des liens entre les mots-clés et les réponses (matrice simplifiée, chaque valeur représente l'index d'un 1 dans une ligne, les autres index sont à zéro)*/
@@ -71,6 +73,7 @@ var dataset = [
 	[23, 7, 10, 12],
 	[26, 25, 13],
 	[26, 25, 19, 6, 14],
-	[28, 30,  15],
-	[16]
+	[28, 30, 15],
+	[31, 17],
+    [16]
 ]
