@@ -1,10 +1,10 @@
 var keywords = [
-	"sang saigné",
+	"sang,saigné,saigne",
 	"beaucoup",
 	"petite",
 	"grosse",
-	"plaie",
-	"accident,blaissé",
+	"plaie,coupé",
+	"accident",
 	"inconscient",
 	"comment",
 	"secours",
@@ -54,6 +54,7 @@ var answers = [
 
 var dataset = [
 	[0, 1, 4, 12, 0],
+	[0, 1, 4, 3, 0],
 	[2, 4, 1],
 	[6, 7, 19, 2],
 	[23, 24, 9, 12, 5, 3],
@@ -69,4 +70,5 @@ var dataset = [
 	[26, 25, 13],
 	[26, 25, 19, 6, 14],
 	[28, 30,  15],
+	[6, 7, 7]
 ]
