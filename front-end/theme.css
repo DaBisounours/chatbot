@@ -4,6 +4,7 @@ html, body {
     height: 100%;
     width: 100%;
     background: #EFEFEF;
+
 }
 
 .catbat {
@@ -11,6 +12,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: 'Nunito Sans', sans-serif;
+    font-size: 1em;
 }
 
 .user-input {
@@ -32,6 +34,8 @@ html, body {
     height: 100%;
     width: 100%;
     border: none;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.1em;
 }
 
 .user-input > input:focus {
@@ -49,7 +53,7 @@ html, body {
     transition: color .3s;
 }
 
-.chat-window {
+#chat-window {
     display: block;
 }
 
@@ -60,9 +64,9 @@ html, body {
 
 .message {
     display: inline-block;
-    margin: 16px 16px 0 16px;
+    margin: 12px 16px 0 16px;
 
-    padding: 8px;
+    padding: 8px 16px;
     border-radius: 12px 12px 12px 12px;
     -moz-border-radius: 12px 12px 12px 12px;
     -webkit-border-radius: 12px 12px 12px 12px;

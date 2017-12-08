@@ -6,69 +6,79 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="theme.css">
     <script>
-
+        /* Gets a random greeting sentence */
         function getGreeting() {
             var greetings = [
-                "Hello, what can I help you with?",
-                "What do you want to know?",
-                "I will be pleased to answer your question!"
+                "Bonjour! En quoi puis-je vous aider?",
+                "Que voulez vous savoir?",
+                "Je me ferai un plaisir de répondre à vos questions!"
             ];
             var randomGreetingIndex = Math.floor((Math.random() * 1000) + 1) % greetings.length;
             return greetings[randomGreetingIndex];
         }
 
-        function initialize(){
-            /* Set the placeholder */
+        /* Adds a message from the user */
+        function addUserMessage(text) {
+            var messageBox = document.createElement("div");
+            messageBox.className += "message-box";
+            var message = document.createElement("div");
+            message.className += "message user-message";
+            message.innerHTML = text;
+            messageBox.appendChild(message);
+            document.getElementById("chat-window").appendChild(messageBox);
+        }
+
+        /* Adds a message from the bot */
+        function addBotMessage(text) {
+            var messageBox = document.createElement("div");
+            messageBox.className += "message-box";
+            var message = document.createElement("div");
+            message.className += "message bot-message";
+            message.innerHTML = text;
+            messageBox.appendChild(message);
+            document.getElementById("chat-window").appendChild(messageBox);
+        }
+
+        /* Initialises the page */
+        function initialize() {
+            /* Set the first message */
             var inputElement = document.getElementById('text-area');
             if (inputElement) {
-                inputElement.placeholder = getGreeting();
+                addBotMessage(getGreeting());
             }
-
         }
+
+        /* Filters key presses on text-area input */
+        function enterKeyFilter(event, callback) {
+            /* If key pressed is enter */
+            if (event.keyCode === 13) {
+                /* Look for the text value */
+                var input = document.getElementById("text-area");
+                var value = input.value;
+                /* Add it on the message window */
+                addUserMessage(value);
+                /* Empty the text input field */
+                input.value = "";
+                /* Call whatever we want */
+                callback(value);
+            }
+        }
+
+        function userSubmitCallback(text) {
+            console.debug("User submitted : \"" + text + "\"");
+        }
+
 
     </script>
 </head>
 <body onload="initialize()">
-    <div class="catbat">
-        <div class="user-input box-shadow-inset-top">
-            <input id="text-area" type="text" placeholder="Type here..."/>
-        </div>
-        <div class="chat-window">
-
-
-            <div class="message-box">
-                <div class="message bot-message">
-                    SOME TEXT
-                </div>
-            </div>
-
-
-            <div class="message-box">
-                <div class="message user-message">
-                    Nothin man I'm just there
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message bot-message">
-                    Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there.
-                </div>
-            </div>
-
-            <div class="message-box">
-                <div class="message user-message">
-                    Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there. Nothin man I'm just there.
-                </div>
-            </div>
-            <div class="message-box">
-                <div class="message user-message">
-                    Nothin man I'm just there.
-                </div>
-            </div>
-
-
-        </div>
+<div class="catbat">
+    <div class="user-input box-shadow-inset-top">
+        <input id="text-area" type="text" onkeypress="enterKeyFilter(event, userSubmitCallback)"
+               placeholder="Tapez ici..."/>
     </div>
+    <div id="chat-window"></div>
+</div>
 
 </body>
 </html>
