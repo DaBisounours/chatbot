@@ -30,6 +30,7 @@
             message.innerHTML = text;
             messageBox.appendChild(message);
             document.getElementById("chat-window").appendChild(messageBox);
+
         }
 
         /* Adds a message from the bot */
@@ -83,11 +84,11 @@
 </head>
 <body onload="initialize()">
 <div class="catbat">
-    <div class="user-input box-shadow-inset-top">
+    <div class="user-input box-shadow-outline">
         <input id="text-area" type="text" onkeypress="enterKeyFilter(event, userSubmitCallback)"
                placeholder="Tapez ici..."/>
     </div>
-    <div id="chat-window"></div>
+    <div id="chat-window" class=""></div>
 </div>
 
 </body>
