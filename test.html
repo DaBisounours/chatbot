@@ -60,13 +60,18 @@
 			}
 
 
-			// build the network
-			var chatNN = new synaptic.Architect.Perceptron(
-				keywords.length,	// input layer
-				15, // hidden 1			// need some tunning
-				answers.length	// output layer
-			);
+			function createNN(inputLength, outputLength) {
+				// build the network
+				var chatNN = new synaptic.Architect.Perceptron(
+					inputLength,	// input layer
+					15, // hidden 1			// need some tunning
+					outputLength	// output layer
+				);
 
+				return chatNN;
+			}
+			
+			chatNN = createNN(keywords.length, answers.length)
 			teach(chatNN)
 			activate(chatNN, [0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0, 0])
 
