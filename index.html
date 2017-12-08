@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Chatbot</title>
+    <!-- Style -->
     <link rel="stylesheet" type="text/css" href="style/reset.css">
     <link rel="stylesheet" type="text/css" href="style/theme.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script>
-    <script src="scripts/parser/parser.js"></script>
-    <script src="scripts/nn/keys.js"></script>
-    <script src="scripts/nn/NeuralNetwork.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.4/synaptic.js"></script><!-- NN Library -->
+    <script src="scripts/parser/parser.js"></script><!-- Parser -->
+    <script src="scripts/nn/keys.js"></script><!-- Data -->
+    <script src="scripts/nn/NeuralNetwork.js"></script><!-- NN management -->
+
+    <!-- This page's Scripts -->
     <script>
         /* Gets a random greeting sentence */
         function getGreeting() {
@@ -75,8 +79,9 @@
 
         }
 
-        /* Default callback function */
+        /* Callback function of submitted value */
         function userSubmitCallback(text) {
+            // Add a bot message corresponding to the answer of the Neural network, guessed from the parsed text.
             addBotMessage(activate(chatNN, parseText(text, keywords)));
         }
 
@@ -86,6 +91,7 @@
 <body onload="initialize()">
 <div class="catbat">
     <div class="user-input box-shadow-outline">
+
         <input id="text-area" type="text" onkeypress="enterKeyFilter(event, userSubmitCallback)"
                placeholder="Tapez ici..."/>
     </div>
