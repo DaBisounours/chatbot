@@ -42,6 +42,7 @@
             message.innerHTML = text;
             messageBox.appendChild(message);
             document.getElementById("chat-window").appendChild(messageBox);
+            window.scrollTo(0,document.body.scrollHeight);
         }
 
         /* Filters key presses on text-area input */
