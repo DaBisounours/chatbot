@@ -22,7 +22,7 @@ var keywords = [
 	"hopital,hôpital",
 	"urgent",
 	"vite,rapide,rapidement",
-	"electricité,jus",
+	"éléctricité,électrifié,éléctrocuté,jus",
 	"outils,perceuse,scie,marteau",
 	"tombé,tombe,chute,chuté",
 	"haut",
